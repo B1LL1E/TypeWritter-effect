@@ -11,11 +11,31 @@
       }
 
       div.typing{
+        /* pozycjonowanie */
         position: absolute;
         left: 50%;
         top: 50%;
+        transform: translate(-50%, -50%);
+
+        /* czcionka */
         font-family: Arial;
         font-size: 50px;
+      }
+
+      .komorka{
+        position: absolute;
+        left:50%;
+        bottom: 5%;
+        transform: translate(-50%,-50%);
+        
+      }
+
+      input{
+        font-size: 20px;
+      }
+
+      button{
+        font-size: 20px;
       }
     </style>
 </head>
@@ -24,19 +44,33 @@
 
 <body>
 
-    <div class="typing">tekst</div>
-    <form class = "komórka">
-      <input>
+    <div class="typing">xd</div>
+    <form class = "komorka">
+      <input >
       <button>OK</button>
     </form>
 
     <script>
-      let typing = document.getElementById('tekst1').innerHTML;
+      let typing = document.querySelector('.typing');
       let tekst1 = "CZEŚĆ!"
 
       //parametry
-      let break1 = 30;
- 
+      const break1 = 500;
+      let pointer = 0;
+      
+      function animacjaP(){
+        if(pointer < tekst1.length){
+          typing.textContent += tekst1.charAt(pointer);
+
+          pointer++;
+
+          setTimeout(animacjaP,break1);
+        }
+      }
+
+      //window.onload = animacjaP;
+
+      animacjaP();
 
     </script>
 
